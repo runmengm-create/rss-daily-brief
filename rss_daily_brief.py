@@ -96,10 +96,10 @@ def build_brief(articles: List[dict]) -> str:
 
 
 def send_email(subject: str, body: str) -> None:
-    smtp_host = os.getenv("SMTP_HOST") or "smtp-mail.outlook.com"
+    smtp_host = os.getenv("SMTP_HOST") or "smtp.gmail.com"
     smtp_port = int(os.getenv("SMTP_PORT") or "587")
-    sender_email = os.environ["OUTLOOK_EMAIL"]
-    sender_password = os.environ["OUTLOOK_PASSWORD"]
+    sender_email = os.getenv("SENDER_EMAIL") or os.environ["OUTLOOK_EMAIL"]
+    sender_password = os.getenv("SENDER_PASSWORD") or os.environ["OUTLOOK_PASSWORD"]
     recipient_email = os.getenv("RECIPIENT_EMAIL") or sender_email
 
     message = EmailMessage()
