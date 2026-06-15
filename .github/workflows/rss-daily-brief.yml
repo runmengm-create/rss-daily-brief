@@ -32,4 +32,7 @@ jobs:
           # Optional. Defaults in the script are smtp.gmail.com:587 with STARTTLS.
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          # Optional tuning. Defaults are 4 and 20.
+          MIN_RELEVANCE_SCORE: ${{ secrets.MIN_RELEVANCE_SCORE }}
+          MAX_ARTICLES: ${{ secrets.MAX_ARTICLES }}
         run: python rss_daily_brief.py
